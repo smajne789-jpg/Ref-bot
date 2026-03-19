@@ -26,7 +26,7 @@ ADMIN_IDS = {
     if x.strip()
 }
 WITHDRAWALS_CHAT_ID = int(os.getenv("WITHDRAWALS_CHAT_ID", "-1003869807196"))
-BOT_USERNAME = os.getenv("BOT_USERNAME", "your_bot_username")
+BOT_USERNAME = os.getenv("BOT_USERNAME", "LudoWorkbot")
 REFERRAL_REWARD = float(os.getenv("REFERRAL_REWARD", "0.07"))
 MIN_WITHDRAW = float(os.getenv("MIN_WITHDRAW", "2.0"))
 DB_PATH = os.getenv("DB_PATH", "referral_bot.db")

@@ -691,7 +691,7 @@ async def withdraw_create(call: CallbackQuery, state: FSMContext):
 
     await state.set_state(WithdrawStates.waiting_method)
     await call.message.answer(
-        "Введите способ вывода.\nПримеры: <code>USDT TRC20</code>, <code>Карта</code>, <code>ЮMoney</code>"
+        "Введите способ вывода.\nПримеры: <code>CryptoBot>"
     )
     await call.answer()
 

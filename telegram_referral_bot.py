@@ -19,13 +19,13 @@ from aiogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMar
 # =========================================================
 # CONFIG
 # =========================================================
-BOT_TOKEN = os.getenv("BOT_TOKEN", "PASTE_BOT_TOKEN_HERE")
+BOT_TOKEN = os.getenv("BOT_TOKEN", "8702728385:AAESnfWAqChZJ1dGAx0iPbN3we17jatVRHU")
 ADMIN_IDS = {
     int(x.strip())
-    for x in os.getenv("ADMIN_IDS", "123456789").split(",")
+    for x in os.getenv("ADMIN_IDS", "8034491282").split(",")
     if x.strip()
 }
-WITHDRAWALS_CHAT_ID = int(os.getenv("WITHDRAWALS_CHAT_ID", "-1001234567890"))
+WITHDRAWALS_CHAT_ID = int(os.getenv("WITHDRAWALS_CHAT_ID", "-1003869807196"))
 BOT_USERNAME = os.getenv("BOT_USERNAME", "your_bot_username")
 REFERRAL_REWARD = float(os.getenv("REFERRAL_REWARD", "0.07"))
 MIN_WITHDRAW = float(os.getenv("MIN_WITHDRAW", "2.0"))

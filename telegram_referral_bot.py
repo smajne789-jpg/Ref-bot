@@ -813,6 +813,37 @@ async def reject_withdrawal(call: CallbackQuery):
 # =========================================================
 # ADMIN COMMANDS
 # =========================================================
+@router.message(Command("broadcast"))
+async def broadcast(message: Message):
+    if not is_admin(message.from_user.id):
+        return
+
+    text = message.text.replace("/broadcast", "").strip()
+
+    if not text:
+        await message.answer("Напиши сообщение после команды:\n/broadcast текст")
+        return
+
+    success = 0
+    failed = 0
+
+    from contextlib import closing
+
+    with closing(db._connect()) as conn:
+        users = conn.execute("SELECT user_id FROM users").fetchall()
+
+    for user in users:
+        try:
+            await message.bot.send_message(user["user_id"], text)
+            success += 1
+        except:
+            failed += 1
+
+    await message.answer(
+        f"📢 Рассылка завершена\n\n"
+        f"✅ Отправлено: {success}\n"
+        f"❌ Ошибки: {failed}"
+    )
 @router.message(Command("admin"))
 async def admin_help(message: Message):
     if not is_admin(message.from_user.id):
@@ -823,7 +854,8 @@ async def admin_help(message: Message):
         "<code>/deltask ID</code> — отключить задание\n"
         "<code>/tasks</code> — список активных заданий\n"
         "<code>/stats</code> — краткая статистика"
-    )
+        "<code>/broadcast</code> — рассылка пользователям"
+     )
     await message.answer(text)
 
 
